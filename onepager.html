@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=1920">
+<title>onepager — makelove × вы</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@300;400;500;600&family=Fira+Mono:wght@500&display=swap">
+<link rel="stylesheet" href="op.css">
+<style>
+@page{size:1920px 1080px;margin:0}
+html,body{margin:0;background:#fff}
+</style>
+</head>
+<body>
+<div id="sheet"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js"></script>
+<script src="data.js"></script>
+<script src="op.js"></script>
+<script>
+/* onepager.html#blin — чистый лист 1920×1080 для выгрузки в PDF */
+const c = COLLABS.find(x => x.id === location.hash.slice(1) && x.op) || COLLABS.find(x => x.op);
+document.title = `${qt(c)} — onepager`;
+$("#sheet").innerHTML = renderOnePager(c);
+</script>
+</body>
+</html>

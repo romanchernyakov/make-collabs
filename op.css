@@ -1,0 +1,69 @@
+@font-face{font-family:"Articulat CF";src:url(fonts/ArticulatCF-Light.woff) format("woff");font-weight:300;font-display:swap}
+@font-face{font-family:"Articulat CF";src:url(fonts/ArticulatCF-Regular.woff) format("woff");font-weight:400;font-display:swap}
+@font-face{font-family:"Articulat CF";src:url(fonts/ArticulatCF-Medium.woff) format("woff");font-weight:500;font-display:swap}
+/* OnePager 16:9 — 1920×1080, по макету Figma «one pager 16:9». Масштабируется контейнером .op-fit */
+.op{--lab:#7B5414;--acc:#FDB363;--box:#F2EBDD;--glow:#FFF1DE;--line:#CCC4B8;--ink:#272420;
+  position:relative;width:1920px;height:1080px;overflow:hidden;background:#F7FBF6;color:var(--ink);
+  font-family:"Articulat CF","Onest","Helvetica Neue",Arial,sans-serif;-webkit-font-smoothing:antialiased;text-transform:none;line-height:1.2;
+  -webkit-print-color-adjust:exact;print-color-adjust:exact}
+.op *{box-sizing:border-box;margin:0}
+.op h1,.op h4{text-transform:none}
+.op::before{content:"";position:absolute;left:-553px;top:-389px;width:1360px;height:1360px;border-radius:50%;background:var(--glow);filter:blur(160px);opacity:.95}
+.op .m{font-family:"Fira Mono",ui-monospace,Menlo,monospace;font-weight:500;font-size:16px;line-height:19px;letter-spacing:2px;text-transform:uppercase;color:var(--lab)}
+.op a{color:inherit;text-decoration:none}
+.op a.op-price{color:#fff}
+.op .abs{position:absolute}
+
+/* шапка */
+.op-head{left:64px;top:48px;width:1792px;height:200px}
+.op-top{position:absolute;left:0;top:-13px;display:flex;align-items:center;gap:28px}
+.op-cta{display:inline-flex;align-items:center;justify-content:center;height:41px;padding:0 30px;border-radius:50px;background:var(--ink);color:#fff!important;font-family:"Fira Mono",monospace;font-weight:500;font-size:18px;letter-spacing:2px;white-space:nowrap}
+.op-title{position:absolute;left:-5px;top:38px;width:1060px;font-size:94px;line-height:1.08;font-weight:400;letter-spacing:-.025em;white-space:nowrap}
+.op-sub{position:absolute;left:0;top:142px;font-size:31px;line-height:1.2;font-weight:500;color:var(--lab);letter-spacing:-.01em}
+.op-vr{position:absolute;left:1060px;top:3px;width:1px;height:127px;background:var(--line)}
+.op-meta{position:absolute;left:1092px;top:5px;width:276px;display:grid;gap:14px}
+.op-meta div{display:grid;gap:3px}
+.op-meta b{font-weight:400;font-size:23px;line-height:1.25}
+.op-price{position:absolute;left:1390px;top:0;width:402px;height:133px;border-radius:24px;overflow:hidden;color:#fff;
+  background:radial-gradient(120% 160% at 110% 0%, var(--acc) 0%, color-mix(in srgb,var(--acc) 45%,#272120) 45%, #272120 85%)}
+.op-price .m{position:absolute;left:38px;top:24px;color:#CCC4B8}
+.op-price b{position:absolute;left:35px;top:51px;font-weight:400;font-size:64px;line-height:64px;letter-spacing:-.03em;white-space:nowrap}
+.op-price b i{font-style:normal;color:var(--acc)}
+.op-price.tbd b{font-size:40px;top:66px;line-height:44px}
+.op-qr{position:absolute;right:16px;top:16px;width:101px;height:101px;background:#fff;border-radius:12px;padding:8px}
+.op-qr svg{display:block;width:100%;height:100%}
+
+/* история: фото + контекст */
+.op-story{left:64px;top:282px;width:720px;height:562px}
+.op-ph{position:absolute;left:0;top:0;width:720px;height:423px;border-radius:26px;overflow:hidden;box-shadow:0 4px 12px rgba(0,0,0,.1);background:#ddd}
+.op-ph img{width:100%;height:100%;object-fit:cover;display:block}
+.op-ctx{position:absolute;left:0;top:445px;width:690px;display:grid;gap:8px}
+.op-ctx p{font-size:24px;line-height:1.22;color:#3A332F}
+
+/* идея и промо */
+.op-ip{left:848px;top:282px;width:1008px;height:288px}
+.op-col{position:absolute;top:0;display:grid;gap:4px}
+.op-col h4{font-weight:500;font-size:32px;line-height:1.18;letter-spacing:-.015em;margin-top:4px}
+.op-col p{font-size:23.5px;line-height:1.2;margin-top:18px}
+.op-c1{left:0;width:480px} .op-c2{left:540px;width:468px}
+.op-ip .op-vr{left:508px;top:0;height:258px}
+
+/* ценность */
+.op-gets{left:848px;top:605px;width:1008px;height:232px;border-radius:24px;background:var(--box);padding:31px 28px}
+.op-gets ul{list-style:none;padding:0;display:grid;grid-template-columns:1fr 1fr;column-gap:36px;row-gap:22px;margin-top:18px}
+.op-gets li{display:grid;grid-template-columns:44px 1fr;font-size:23px;line-height:1.2}
+.op-gets li span{font-family:"Fira Mono",monospace;font-weight:500;font-size:22px;color:var(--lab);padding-top:2px}
+
+/* этапы */
+.op-steps{left:64px;top:900px;width:1792px;height:150px}
+.op-steps-h{display:flex;align-items:center;gap:20px}
+.op-steps-h i{flex:1;height:1px;background:var(--line)}
+.op-steps-h img{height:24px;width:auto}
+.op-steps ol{list-style:none;padding:0;display:grid;grid-template-columns:repeat(var(--n),minmax(0,1fr));column-gap:24px;margin-top:22px}
+.op-steps li{display:grid;grid-template-columns:42px 1fr;font-size:22px;line-height:1.2}
+.op-steps li span{font-family:"Fira Mono",monospace;font-weight:500;font-size:26px;line-height:24px;color:var(--lab)}
+.op-foot{position:absolute;right:0;bottom:0;font-family:"Fira Mono",monospace;font-size:14px;letter-spacing:1px;color:rgba(39,36,32,.5)}
+
+/* контейнер, который вписывает лист в ширину */
+.op-fit{position:relative;width:100%;aspect-ratio:16/9;overflow:hidden;border-radius:clamp(10px,1.4vw,20px)}
+.op-fit .op{position:absolute;left:0;top:0;transform-origin:0 0}

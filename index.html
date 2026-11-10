@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>makelove × вы — коллаборации 2027</title>
+<meta name="description" content="коллаборации makelove на 2027 год: календарь проектов и заявка для брендов-работодателей">
+<link rel="icon" type="image/png" href="img/hammer_mask.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="site.css">
+<link rel="stylesheet" href="hero.css">
+</head>
+<body class="v3">
+<header class="top">
+  <div class="wrap">
+    <a href="#top" aria-label="makelove"><img class="logo logo-l" src="img/wordmark_dark.png" alt="makelove"><img class="logo logo-d" src="img/wordmark.png" alt="makelove"></a>
+    <nav class="nav">
+      <a href="#kollaby">коллаборации</a>
+      <a href="#kalendar">календарь</a>
+      <a class="btn" href="#zayavka">оставить заявку</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="glows" aria-hidden="true">
+      <div class="hm anim" style="--s:460px;left:-120px;top:-180px;--o:.38;--rot:-12deg;--t:20s"></div>
+      <div class="hm anim" style="--hc:var(--pink);--s:380px;right:-100px;top:-120px;--o:.26;--rot:18deg;--dx:-40px;--dy:30px;--t:24s"></div>
+    </div>
+    <div class="wrap">
+      <h1>makelove<span class="x">×</span>вы</h1>
+      <div class="hero-side">
+        <div style="display:grid;gap:14px">
+          <span class="tag"><i></i>коллаборации <span class="yr"></span></span>
+          <p class="lead">коллаборации, в которых несколько брендов-работодателей объединяются вокруг одной идеи. бюджет делится между участниками, а охват складывается.</p>
+        </div>
+        <div class="corner" id="corner"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="kollaby">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>все коллаборации</h2>
+        <p>идея, сроки и формат участия. нажмите на карточку, чтобы открыть страницу коллаборации и скачать onepager.</p>
+      </div>
+      <div class="lc-grid" id="list"></div>
+    </div>
+  </section>
+
+  <section class="sec" id="kalendar" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>календарь <span class="g yr"></span></h2>
+        <p>наведите на коллаборацию, чтобы подсветить её период. точные даты согласуем вместе с партнёрами.</p>
+      </div>
+      <div class="cal-tiles"><div class="year" id="year"></div></div>
+      <div class="cal-gantt"><div class="gt-scroll"><div id="gantt"></div></div></div>
+      <div class="cal-foot">
+        <div class="legend">
+          <span class="lg-v1"><span><i style="background:var(--green-soft)"></i>период коллаборации</span><span><i style="background:var(--green)"></i>ключевая дата</span></span>
+          <span class="lg-v2"><span><i style="background:var(--green)"></i>период коллаборации</span><span><i style="background:none;box-shadow:inset 0 0 0 2px var(--ink);border-radius:999px;width:22px"></i>ключевые даты</span><span><i style="box-shadow:inset 0 0 0 1.5px var(--faint);border-radius:999px;width:22px"></i>идея в разработке</span></span>
+          <span><i style="border:1px dashed var(--line-2);background:repeating-linear-gradient(135deg,transparent 0 3px,var(--line) 3px 4px)"></i>свободный месяц</span>
+        </div>
+        <span class="mono">свободный месяц можно занять своей идеей</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="zayavka" style="padding-top:0">
+    <div class="wrap">
+      <div class="apply">
+        <div class="hm" aria-hidden="true"></div>
+        <div class="apply-grid">
+          <div class="apply-side">
+            <span class="mono">заявка на участие</span>
+            <h2>выбрали?<br>напишите нам</h2>
+            <p>оставьте контакты и коллаборацию, которая понравилась. пришлём презентацию проекта и обсудим формат участия.</p>
+            <div class="contacts" id="contacts"></div>
+          </div>
+          <form id="form" name="zayavka" method="POST" data-netlify="true" netlify-honeypot="bot-field" novalidate>
+            <input type="hidden" name="form-name" value="zayavka">
+            <p hidden><label>не заполняйте: <input name="bot-field"></label></p>
+            <div class="f2">
+              <div class="field"><label for="f-name">имя</label><input id="f-name" name="name" autocomplete="name" placeholder="как к вам обращаться"></div>
+              <div class="field"><label for="f-company">компания</label><input id="f-company" name="company" autocomplete="organization" placeholder="название бренда"></div>
+            </div>
+            <div class="f2">
+              <div class="field"><label for="f-role">должность</label><input id="f-role" name="role" placeholder="hr-директор, бренд-менеджер…"></div>
+              <div class="field"><label for="f-contact">почта или телеграм</label><input id="f-contact" name="contact" placeholder="name@company.ru / @name"></div>
+            </div>
+            <div class="field"><label for="f-item">коллаборация</label><select id="f-item" name="item"></select></div>
+            <div class="field"><label for="f-note">комментарий</label><textarea id="f-note" name="note" placeholder="задачи бренда, бюджет, вопросы"></textarea></div>
+            <p class="err" id="f-err" hidden></p>
+            <div class="form-foot">
+              <small>нажимая кнопку, вы соглашаетесь, что мы свяжемся с вами по указанным контактам</small>
+              <button class="btn" type="submit" id="f-submit">отправить заявку →</button>
+            </div>
+            <div id="f-result"></div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <img class="logo" src="img/wordmark.png" alt="makelove" style="height:18px">
+    <span class="mono">© makelove · employer branding agency</span>
+  </div>
+</footer>
+
+
+<div class="toast" id="toast" role="status"></div>
+
+<script src="data.js"></script>
+<script>
+const priceSmall = c => priceShown(c) ? `стоимость · <span class="cur">${esc(c.price.value)} ₽</span>` : `стоимость · по запросу`;
+
+$$(".yr").forEach(e => e.textContent = YEAR);
+$("#contacts").innerHTML = CONTACTS.map(([k,v]) => `<div><span>${esc(k)}</span><span>${esc(v)}</span></div>`).join("");
+
+/* month coverage */
+
+
+/* cards */
+$("#list").innerHTML = COLLABS.map(c => {
+  const ph = c.img
+    ? `<div class="lc-ph"><img src="${c.img}" alt="" loading="lazy"></div>`
+    : `<div class="lc-ph empty" style="--acc:${c.acc};--acc-bg:color-mix(in srgb, ${c.acc} 24%, var(--surface))"><div class="hm" aria-hidden="true"></div><span>фото скоро</span></div>`;
+  return `
+  <a class="lc" href="${pageUrl(c)}" data-c="${c.id}" data-open="${c.id}">
+    ${ph}
+    <div class="lc-pn">
+      <span class="pill ${c.status==="draft"?"draft":""}">${c.status==="draft" ? "в разработке · " : ""}${monthsLabel(c)}</span>
+      <h3>${esc(qt(c))}</h3>
+      <p class="lc-sub">${esc(c.sub)}</p>
+      <p class="lc-short">${esc(c.short)}</p>
+      <div class="lc-foot">
+        <div class="per"><small>период · ${esc(c.format)}</small><b>${period(c)}</b><small>${priceSmall(c)}</small></div>
+        <span class="go" aria-hidden="true">↗</span>
+      </div>
+    </div>
+  </a>`;
+}).join("") + (COLLABS.length % 2 ? `
+  <a class="lc-cta" href="#zayavka" data-free>
+    <div class="hm" aria-hidden="true"></div>
+    <div><span class="mono">свободные месяцы ${YEAR}</span><h3 style="margin-top:12px">есть своя идея?</h3><p>займите свободный месяц: придумаем коллаборацию под задачи вашего бренда и соберём партнёров.</p></div>
+    <div style="display:grid;gap:18px"><div class="chips">${MONTHS.map((n,m) => busy[m] ? "" : `<span>${n}</span>`).join("")}</div><span class="btn">предложить идею →</span></div>
+  </a>` : "");
+
+/* calendar v1 — tiles */
+$("#year").innerHTML = MONTHS.map((name, m) => {
+  const lead = (new Date(Date.UTC(YEAR, m, 1)).getUTCDay()+6)%7;
+  let g = ""; for (let i=0;i<lead;i++) g += `<i class="e"></i>`;
+  for (let d=1; d<=monthDays(m); d++){
+    const t = doy(iso(m,d)), cs = COLLABS.filter(c => inC(c,t));
+    const k = cs.some(c => isKey(c,t));
+    g += `<i class="${cs.length?"on":""} ${k?"k":""}" ${cs.length?`data-c="${cs.map(c=>c.id).join(" ")}"`:""}>${d}</i>`;
+  }
+  const cs = COLLABS.filter(c => c.ms <= m && c.me >= m);
+  const head = `<div class="mt-h"><b>${name}</b><span>${String(m+1).padStart(2,"0")}</span></div><div class="mg" aria-hidden="true">${g}</div>`;
+  if (!cs.length) return `<article class="mt free">${head}<a class="mt-free" href="#zayavka" data-free>месяц свободен · предложить идею →</a></article>`;
+  return `<article class="mt" data-c="${cs.map(c=>c.id).join(" ")}">${head}<div class="mt-cs">${cs.map(c =>
+    `<a class="mt-c" href="${pageUrl(c)}" data-open="${c.id}" data-c="${c.id}"><span>${esc(qt(c))}<small>${period(c)}</small></span><i aria-hidden="true">→</i></a>`).join("")}</div></article>`;
+}).join("");
+
+/* calendar v2/v3 — year ribbon, auto lanes so labels never overlap */
+const mcols = MONTHS.map((_,m) => `${monthDays(m)}fr`).join(" ");
+const LABEL_DAYS = 40;
+const lanes = [];
+[...COLLABS].sort((x,y) => x.a - y.a).forEach(c => {
+  const end = Math.max(c.b, c.a + LABEL_DAYS);
+  let i = lanes.findIndex(l => l.end < c.a - 2);
+  if (i < 0){ lanes.push({end:-1, items:[]}); i = lanes.length - 1; }
+  lanes[i].end = end; lanes[i].items.push(c);
+});
+const tl = document.createElement("div"); tl.className = "tl"; tl.style.setProperty("--mcols", mcols);
+tl.innerHTML =
+  `<div class="tl-grid">${MONTHS.map((_,m) => `<i class="${busy[m]?"":"free"}"></i>`).join("")}</div>` +
+  `<div class="tl-head">${MONTHS_S.map((s,m) => `<span>${s}${busy[m]?"":"<em>свободен</em>"}</span>`).join("")}</div>` +
+  `<div class="tl-lanes">${lanes.map(l => `<div class="lane">${l.items.map(c => {
+      const L = c.a / YDAYS * 100, W = (c.b - c.a + 1) / YDAYS * 100, len = c.b - c.a + 1;
+      const marks = c.keyRanges.map(([a,b]) => {
+        const kl = (a - c.a) / len * 100, kw = (b - a + 1) / len * 100;
+        return a === b ? `<i class="kd" style="left:calc(${kl + kw/2}% - 1.5px)"></i>` : `<i class="kr" style="left:${kl}%;width:${kw}%"></i>`;
+      }).join("");
+      return `<a class="it ${c.status==="draft"?"draft":""} ${L + W > 86 ? "end" : ""}" href="${pageUrl(c)}" data-open="${c.id}" data-c="${c.id}" style="--l:${L}%;--w:${W}%;--acc:${c.acc}">
+        <div class="bar" style="--wpx:100%;width:calc(${W} / ${Math.max(W,0.0001)} * 100%)">${marks}</div>
+        <div class="lb"><b>${esc(qt(c))}</b><small>${period(c)}${c.keyNote ? " · " + c.keyNote : ""}</small></div></a>`;
+    }).join("")}</div>`).join("")}</div>`;
+$("#gantt").replaceWith(tl);
+/* bar width is relative to the whole track, so size it in px after layout */
+function sizeBars(){
+  const W = tl.getBoundingClientRect().width;
+  tl.querySelectorAll(".it").forEach(it => {
+    const c = COLLABS.find(x => x.id === it.dataset.c);
+    it.querySelector(".bar").style.width = Math.max(12, (c.b - c.a + 1) / YDAYS * W) + "px";
+  });
+}
+addEventListener("resize", sizeBars); requestAnimationFrame(sizeBars);
+
+/* hover sync */
+function focusOn(id){
+  document.body.classList.toggle("focusing", !!id);
+  $$("[data-c]").forEach(el => el.classList.toggle("hl", !!id && el.dataset.c.split(" ").includes(id)));
+}
+$$(".lc, .it, .mt-c").forEach(el => {
+  el.addEventListener("mouseenter", () => focusOn(el.dataset.c));
+  el.addEventListener("mouseleave", () => focusOn(null));
+});
+$$("[data-free]").forEach(el => el.addEventListener("click", () => { selItem.value = "free"; }));
+
+/* form */
+const selItem = $("#f-item");
+selItem.innerHTML = `<option value="">пока не выбрали</option>` + COLLABS.map(c => `<option value="${c.id}">${monthsLabel(c)} — ${esc(qt(c))}</option>`).join("") + `<option value="free">своя идея на свободный месяц</option>`;
+function toast(t){ const el = $("#toast"); el.textContent = t; el.classList.add("show"); clearTimeout(toast._t); toast._t = setTimeout(() => el.classList.remove("show"), 2400); }
+$("#form").addEventListener("submit", async e => {
+  e.preventDefault();
+  const v = Object.fromEntries(new FormData(e.target).entries()), err = $("#f-err"); err.hidden = true;
+  if (!v.name?.trim() || !v.company?.trim() || !v.contact?.trim()){ err.textContent = "заполните имя, компанию и контакт, чтобы мы могли ответить"; err.hidden = false; return; }
+  const c = COLLABS.find(x => x.id === v.item), item = v.item === "free" ? "своя идея на свободный месяц" : c ? `${monthsLabel(c)} — ${qt(c)}` : "не выбрана";
+  let ok = false;
+  try { const r = await fetch("/", { method:"POST", headers:{"Content-Type":"application/x-www-form-urlencoded"}, body:new URLSearchParams({...v, item}).toString() }); ok = r.ok; } catch(_){}
+  const text = `заявка makelove × вы\nимя: ${v.name}\nкомпания: ${v.company}\nконтакт: ${v.contact}\nколлаборация: ${item}${v.note?`\nкомментарий: ${v.note}`:""}`;
+  $("#f-result").innerHTML = ok
+    ? `<div class="form-msg"><b>заявка у нас</b><span>спасибо! свяжемся с вами в течение двух рабочих дней.</span></div>`
+    : `<div class="form-msg"><b>почти готово</b><span>заявка не отправилась автоматически. пришлите её на ${esc(CONTACTS[0][1])}:</span><pre>${esc(text)}</pre></div>`;
+});
+
+/* hero corner — three options to choose from */
+const next = COLLABS.find(c => c.status === "ready") ;
+$("#corner").innerHTML = `<a class="cn-next" href="${pageUrl(next)}">
+  <span class="cn-ph">${next.img ? `<img src="${next.img}" alt="">` : ""}</span>
+  <span class="cn-tx"><span class="mono">ближайшая коллаборация</span><b>${esc(qt(next))}</b><small>${period(next)} ${YEAR}</small></span>
+  <span class="go" aria-hidden="true">↗</span></a>`;
+/* preselect a collab when coming from its page */
+try { const pick = sessionStorage.getItem("pick"); if (pick){ selItem.value = pick; sessionStorage.removeItem("pick"); } } catch(_){}
+</script>
+</body>
+</html>

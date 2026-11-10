@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>коллаборация — makelove × вы</title>
+<link rel="icon" type="image/png" href="img/hammer_mask.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Fira+Mono:wght@500&display=swap">
+<link rel="stylesheet" href="site.css">
+<link rel="stylesheet" href="op.css">
+<style>
+/* ===== шапка коллабы ===== */
+.k-top{position:relative;overflow:hidden;border-bottom:1px solid var(--line)}
+.k-top .hm{--s:520px;--o:.32;--b:90px;right:-140px;top:-200px;--hc:var(--kacc)}
+.k-top .wrap{position:relative;padding-block:clamp(22px,3vw,40px) clamp(28px,4vw,56px);display:grid;gap:clamp(18px,2.4vw,28px)}
+.crumbs{display:flex;flex-wrap:wrap;gap:8px 18px;align-items:center}
+.crumbs a{font-size:14px;color:var(--mute);text-decoration:none}
+.crumbs a:hover{color:var(--ink)}
+.k-title{font-size:clamp(52px,9vw,148px);letter-spacing:-.065em;line-height:.88}
+.k-sub{font-size:clamp(18px,1.8vw,24px);color:var(--kacc);letter-spacing:-.01em;margin-top:-6px}
+.k-row{display:grid;gap:24px;align-items:end}
+@media (min-width:980px){.k-row{grid-template-columns:minmax(0,1fr) auto}}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));border-top:1px solid var(--line-2);border-bottom:1px solid var(--line-2)}
+.facts div{padding:14px 18px 14px 0;display:grid;gap:3px}
+.facts div+div{padding-left:18px;border-left:1px solid var(--line-2)}
+.facts b{font-weight:400;font-size:18px;letter-spacing:-.01em;line-height:1.25}
+@media (max-width:620px){.facts div+div{border-left:0;padding-left:0;border-top:1px solid var(--line-2)}}
+.acts{display:flex;flex-wrap:wrap;gap:10px}
+.btn-ghost{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 1px var(--line-2)}
+.btn-ghost:hover{box-shadow:inset 0 0 0 1px var(--ink);background:transparent;color:var(--ink)}
+.btn[aria-disabled=true]{opacity:.45;pointer-events:none}
+
+/* ===== onepager ===== */
+.k-op{padding-block:clamp(28px,4vw,56px)}
+.k-op-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:8px 20px;margin-bottom:14px}
+.k-op .op-fit{box-shadow:0 40px 90px -50px rgba(0,0,0,.8),0 0 0 1px var(--line-2)}
+.op-empty{display:grid;place-items:center;aspect-ratio:16/9;border-radius:20px;border:1.5px dashed var(--line-2);color:var(--mute);text-align:center;padding:24px;background:var(--surface)}
+.op-empty b{display:block;font-weight:400;font-size:clamp(24px,2.6vw,36px);letter-spacing:-.03em;color:var(--ink);margin-bottom:6px}
+
+/* ===== лонгрид ===== */
+.lr{display:grid;gap:clamp(28px,4vw,64px);padding-block:clamp(40px,6vw,96px);border-top:1px solid var(--line)}
+@media (min-width:1000px){.lr{grid-template-columns:240px minmax(0,1fr)}}
+.toc{position:sticky;top:90px;align-self:start;display:grid;gap:4px}
+@media (max-width:999px){.toc{display:none}}
+.toc a{font-size:14px;color:var(--mute);text-decoration:none;padding:6px 0;border-left:2px solid var(--line);padding-left:14px;transition:color .2s,border-color .2s}
+.toc a:hover,.toc a.on{color:var(--ink);border-left-color:var(--kacc)}
+.lr-body{display:grid;gap:clamp(48px,6vw,88px);max-width:880px}
+.lead{font-size:clamp(24px,2.6vw,36px)!important;line-height:1.25!important;letter-spacing:-.025em;max-width:none!important}
+.blk{display:grid;gap:18px;scroll-margin-top:90px}
+.blk h3{font-size:clamp(30px,3.4vw,48px);letter-spacing:-.045em;line-height:1;text-transform:none}
+.blk p{font-size:18px;line-height:1.6;color:color-mix(in srgb,var(--ink) 86%,transparent);max-width:64ch}
+.blk .eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.08em;color:var(--kacc)}
+.quote{border-left:3px solid var(--kacc);padding:6px 0 6px 22px;font-size:clamp(20px,2vw,26px);line-height:1.35;letter-spacing:-.02em;max-width:40ch}
+.kpi{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+.kpi div{border:1px solid var(--line-2);border-radius:20px;padding:22px;display:grid;gap:6px;background:var(--card-bg)}
+.kpi b{font-weight:400;font-size:clamp(44px,5vw,68px);letter-spacing:-.05em;line-height:1;color:var(--kacc)}
+.kpi span{font-size:15px;color:var(--mute)}
+.gets{list-style:none;margin:0;padding:0;display:grid;gap:0;border-top:1px solid var(--line-2)}
+.gets li{display:grid;grid-template-columns:56px 1fr;gap:10px;padding:16px 0;border-bottom:1px solid var(--line-2);font-size:18px;line-height:1.4}
+.gets li span{font-family:var(--mono);font-size:13px;color:var(--kacc);padding-top:4px}
+.steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
+.steps li{display:grid;gap:10px;padding:18px;border-radius:18px;background:var(--surface);font-size:16px;line-height:1.3}
+.steps li span{font-family:var(--mono);font-size:13px;color:var(--kacc)}
+.k-cta{position:relative;overflow:hidden;isolation:isolate;border-radius:30px;padding:clamp(28px,4vw,56px);background:var(--surface);border:1px solid var(--line);display:grid;gap:22px}
+.k-cta .hm{--s:460px;--o:.4;--b:80px;right:-120px;bottom:-200px;--hc:var(--kacc);z-index:-1}
+.k-cta h3{font-size:clamp(36px,4.6vw,64px);letter-spacing:-.05em}
+.short-only p{font-size:clamp(20px,2vw,26px);line-height:1.4;letter-spacing:-.015em;max-width:44ch}
+
+/* ===== соседи ===== */
+.nb{display:grid;gap:14px;padding-bottom:clamp(48px,6vw,96px)}
+@media (min-width:760px){.nb{grid-template-columns:1fr 1fr}}
+.nb a{display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:center;padding:10px 20px 10px 10px;border-radius:24px;border:1px solid var(--line-2);text-decoration:none;transition:border-color .3s}
+.nb a:hover{border-color:var(--green)}
+.nb .ph{width:96px;height:96px;border-radius:16px;overflow:hidden;background:var(--nacc)}
+.nb .ph img{width:100%;height:100%;object-fit:cover}
+.nb b{display:block;font-weight:400;font-size:clamp(22px,2vw,28px);letter-spacing:-.03em;line-height:1.05;margin-top:4px}
+.nb .r{text-align:right;grid-template-columns:1fr auto}
+.nb .r .ph{order:2}
+</style>
+</head>
+<body class="v3">
+<header class="top">
+  <div class="wrap">
+    <a href="index.html" aria-label="makelove"><img class="logo logo-l" src="img/wordmark_dark.png" alt="makelove"><img class="logo logo-d" src="img/wordmark.png" alt="makelove"></a>
+    <nav class="nav">
+      <a href="index.html#kollaby">коллаборации</a>
+      <a href="index.html#kalendar">календарь</a>
+      <a class="btn" href="index.html#zayavka" data-apply>оставить заявку</a>
+    </nav>
+  </div>
+</header>
+
+<main id="page"></main>
+
+<footer>
+  <div class="wrap">
+    <img class="logo" src="img/wordmark.png" alt="makelove" style="height:18px">
+    <span class="mono">© makelove · employer branding agency</span>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js"></script>
+<script src="data.js"></script>
+<script src="op.js"></script>
+<script>
+const PDF_READY = ["utrennik","blin"];                       // для каких коллаб уже выгружен pdf/<id>.pdf
+function render(){
+  const id = location.hash.slice(1);
+  const i = Math.max(0, COLLABS.findIndex(x => x.id === id)), c = COLLABS[i];
+  const prev = COLLABS[(i - 1 + COLLABS.length) % COLLABS.length], next = COLLABS[(i + 1) % COLLABS.length];
+  document.title = `${qt(c)} — makelove × вы`;
+  document.body.style.setProperty("--kacc", c.acc);
+  const pdf = PDF_READY.includes(c.id) ? `pdf/${c.id}.pdf` : null;
+  const P = c.page;
+  const keyLine = c.keyNote ? `${c.keyNote}` : (c.keys && c.keys.length ? "отмечены в календаре" : "—");
+
+  const sections = P ? [
+    ...P.sections.map((s,n) => ({ id:`s${n}`, h:s.h, html:`<div class="blk" id="s${n}"><span class="eyebrow">${esc(s.h)}</span><h3>${esc(s.title)}</h3>${s.p.map(p => `<p>${esc(p)}</p>`).join("")}${s.quote ? `<p class="quote">${esc(s.quote)}</p>` : ""}</div>` })),
+    P.kpi && { id:"kpi", h:"результаты", html:`<div class="blk" id="kpi"><span class="eyebrow">результаты</span><h3>Что будет на выходе</h3><div class="kpi">${P.kpi.map(([n,t]) => `<div><b>${esc(n)}</b><span>${esc(t)}</span></div>`).join("")}</div></div>` },
+    { id:"gets", h:"что получает партнёр", html:`<div class="blk" id="gets"><span class="eyebrow">что получает партнёр</span><h3>Что вы получаете</h3><ul class="gets">${P.gets.map((g,n) => `<li><span>0${n+1}</span>${esc(g)}</li>`).join("")}</ul></div>` },
+    c.op && { id:"steps", h:"как идёт проект", html:`<div class="blk" id="steps"><span class="eyebrow">как идёт проект</span><h3>Этапы</h3><ol class="steps">${c.op.steps.map((s,n) => `<li><span>0${n+1}</span>${esc(s)}</li>`).join("")}</ol></div>` }
+  ].filter(Boolean) : [];
+
+  $("#page").innerHTML = `
+  <section class="k-top">
+    <div class="hm" aria-hidden="true"></div>
+    <div class="wrap">
+      <div class="crumbs"><a href="index.html#kollaby">← все коллаборации</a><span class="mono">коллаборация · ${monthsLabel(c)} ${YEAR}${c.status==="draft" ? " · в разработке" : ""}</span></div>
+      <div><h1 class="k-title">${esc(qt(c))}</h1><p class="k-sub" style="margin-top:14px">${esc(c.sub)}</p></div>
+      <div class="k-row">
+        <div class="facts">
+          <div><span class="mono">период</span><b>${period(c)} ${YEAR}</b></div>
+          <div><span class="mono">формат</span><b>${esc(c.format)}</b></div>
+          <div><span class="mono">ключевые даты</span><b>${esc(keyLine)}</b></div>
+          <div><span class="mono">стоимость</span><b>${priceShown(c) ? esc(c.price.value) + " ₽" : "по запросу"}</b></div>
+        </div>
+        <div class="acts">
+          ${pdf ? `<a class="btn btn-ghost" href="${pdf}" download>скачать onepager · pdf</a>` : `<span class="btn btn-ghost" aria-disabled="true">onepager готовится</span>`}
+          <a class="btn" href="index.html#zayavka" data-apply>хочу участвовать →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="k-op"><div class="wrap">
+    <div class="k-op-head"><span class="mono">onepager · 16:9</span><span class="mono">${pdf ? "кнопка и qr в pdf ведут на эту страницу" : ""}</span></div>
+    ${c.op ? `<div class="op-fit">${renderOnePager(c)}</div>` : `<div class="op-empty"><div><b>onepager готовится</b>соберём его из презентации проекта</div></div>`}
+  </div></section>
+
+  <div class="wrap">
+    ${P ? `<div class="lr">
+      <nav class="toc">${sections.map(s => `<a href="#${s.id}" data-toc="${s.id}">${esc(s.h)}</a>`).join("")}</nav>
+      <div class="lr-body">
+        <p class="lead">${esc(P.lead)}</p>
+        ${sections.map(s => s.html).join("")}
+        <div class="k-cta"><div class="hm" aria-hidden="true"></div><span class="mono">заявка на участие</span><h3>хотите в ${esc(qt(c))}?</h3><p style="color:var(--mute);max-width:44ch">оставьте контакты — пришлём полную презентацию и расскажем, как подключиться.</p><a class="btn" style="justify-self:start" href="index.html#zayavka" data-apply>хочу участвовать →</a></div>
+      </div>
+    </div>` : `<div class="lr"><span class="mono">о проекте</span><div class="lr-body short-only"><p>${esc(c.short)}</p><p style="color:var(--mute);font-size:17px">подробное описание появится здесь, когда будет готова презентация проекта.</p><a class="btn" style="justify-self:start" href="index.html#zayavka" data-apply>хочу участвовать →</a></div></div>`}
+
+    <nav class="nb">
+      <a href="${pageUrl(prev)}" style="--nacc:${prev.acc}"><span class="ph">${prev.img ? `<img src="${prev.img}" alt="">` : ""}</span><span><span class="mono">← ${period(prev)}</span><b>${esc(qt(prev))}</b></span></a>
+      <a class="r" href="${pageUrl(next)}" style="--nacc:${next.acc}"><span><span class="mono">${period(next)} →</span><b>${esc(qt(next))}</b></span><span class="ph">${next.img ? `<img src="${next.img}" alt="">` : ""}</span></a>
+    </nav>
+  </div>`;
+
+  $$("[data-apply]").forEach(a => a.addEventListener("click", () => { try { sessionStorage.setItem("pick", c.id); } catch(_){} }));
+  /* toc: в артефакте hash занят id коллабы, поэтому скроллим скриптом */
+  $$("[data-toc]").forEach(a => a.addEventListener("click", e => { e.preventDefault(); document.getElementById(a.dataset.toc).scrollIntoView({behavior:"smooth"}); }));
+  const io = new IntersectionObserver(es => es.forEach(en => { if (en.isIntersecting) $$("[data-toc]").forEach(a => a.classList.toggle("on", a.dataset.toc === en.target.id)); }), {rootMargin:"-30% 0px -60% 0px"});
+  $$(".blk[id]").forEach(b => io.observe(b));
+  fitOnePagers(); scrollTo(0,0);
+}
+addEventListener("hashchange", render);
+render();
+</script>
+</body>
+</html>
